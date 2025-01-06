@@ -24,9 +24,7 @@
                     </ScrollView>
                 </Grid>
                 <!-- Page content -->
-                <HorizontalStackLayout>
-                    <ContentPresenter/>
-                </HorizontalStackLayout>
+                <ContentPresenter/>
             </VerticalStackLayout>
         </ControlTemplate>
     </ContentPage.ControlTemplate>
