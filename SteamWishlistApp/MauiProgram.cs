@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SteamWishlistApp.Views;
 
 namespace SteamWishlistApp {
     public static class MauiProgram {
@@ -14,6 +15,9 @@ namespace SteamWishlistApp {
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<FriendPage>();
 
             return builder.Build();
         }

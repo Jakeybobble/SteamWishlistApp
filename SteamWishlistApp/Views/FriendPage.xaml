@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SteamWishlistApp.Views.FriendPage"
+             xmlns:views="clr-namespace:SteamWishlistApp.Views">
+    <ScrollView Padding="10">
+        <VerticalStackLayout>
+            <Label FontSize="32" TextColor="White">This is a friend page!</Label>
+            <Label FontSize="20" TextColor="LightGray" FontAttributes="Italic">More in the future...</Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</views:BasePage>

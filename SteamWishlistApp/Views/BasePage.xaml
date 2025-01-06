@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SteamWishlistApp.Views.BasePage">
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <VerticalStackLayout BackgroundColor="SlateGray">
+                <!-- Home button, friends, etc. -->
+                <Grid HeightRequest="96" BackgroundColor="DarkGray" ColumnDefinitions="Auto,*" Padding="10" VerticalOptions="Fill">
+                    <!-- Home button and divider -->
+                    <HorizontalStackLayout Spacing="10" Margin="0,0,10,0">
+                        <ImageButton  HorizontalOptions="Center" VerticalOptions="Fill" WidthRequest="76" Clicked="Home_Clicked"/>
+                        <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
+                    </HorizontalStackLayout>
+                    
+                    <!-- Friends -->
+                    <ScrollView Orientation="Horizontal" Grid.Column="1" BackgroundColor="DarkGray">
+                        <HorizontalStackLayout Spacing="10">
+                            <!-- TODO: Use BindableLayout for friend boxes -->
+                            <ImageButton  HorizontalOptions="Center" VerticalOptions="Fill" WidthRequest="76" Clicked="Friend_Clicked"/>
+                            <ImageButton  HorizontalOptions="Center" VerticalOptions="Fill" WidthRequest="76" Clicked="Friend_Clicked"/>
+                        </HorizontalStackLayout>
+                        
+                    </ScrollView>
+                </Grid>
+                <!-- Page content -->
+                <HorizontalStackLayout>
+                    <ContentPresenter/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+</ContentPage>
