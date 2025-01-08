@@ -19,7 +19,7 @@ public partial class BasePage : ContentPage {
     }
 
     private async void Home_Clicked(object sender, EventArgs e) {
-        await Shell.Current.GoToAsync("/" + nameof(MainPage), false);
+        await Shell.Current.GoToAsync("///" + nameof(MainPage), false);
     }
 
     private async void Friend_Clicked(object sender, EventArgs e) {
