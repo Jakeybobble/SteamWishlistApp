@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SteamWishlistApp.ViewModel;
 using SteamWishlistApp.Views;
 
 namespace SteamWishlistApp {
@@ -16,6 +17,8 @@ namespace SteamWishlistApp {
     		builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddSingleton<BasePage>();
+            builder.Services.AddSingleton<BaseViewModel>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<FriendPage>();
 
