@@ -33,7 +33,7 @@
                                     <DataTemplate>
                                         <StackLayout VerticalOptions="End" WidthRequest="76">
                                             <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="Friend_Clicked"/>
+                                                <TapGestureRecognizer Tapped="Friend_Clicked" CommandParameter="{Binding .}"/>
                                             </StackLayout.GestureRecognizers>
 
                                             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" BackgroundColor="White" BorderColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center"/>

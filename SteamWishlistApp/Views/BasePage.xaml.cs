@@ -23,6 +23,9 @@ public partial class BasePage : ContentPage {
     }
 
     private async void Friend_Clicked(object sender, EventArgs e) {
+        if (sender is Element element && element.BindingContext is Friend selectedFriend) {
+            Trace.WriteLine($"Going to: {selectedFriend.Name}");
+        }
         await Shell.Current.GoToAsync("/" + nameof(FriendPage), false);
 
     }

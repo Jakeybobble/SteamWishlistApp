@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SteamWishlistApp.ViewModels {
-    internal class FriendViewModel : INotifyPropertyChanged {
+    public class FriendViewModel : INotifyPropertyChanged {
 
 
         public event PropertyChangedEventHandler PropertyChanged;
