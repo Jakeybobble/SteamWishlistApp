@@ -1,11 +1,13 @@
 ﻿using SteamWishlistApp.ViewModel;
+using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 
 namespace SteamWishlistApp {
-    public partial class MainPage : BasePage {
+    public partial class MainPage : ContentPage {
 
-        public MainPage(BaseViewModel baseViewModel) : base(baseViewModel) {
+        public MainPage() {
             InitializeComponent();
+
         }
 
     }

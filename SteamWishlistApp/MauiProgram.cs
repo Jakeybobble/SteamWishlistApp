@@ -1,10 +1,16 @@
 ﻿using Microsoft.Extensions.Logging;
+using SteamWishlistApp.Controls;
 using SteamWishlistApp.ViewModel;
+using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 
 namespace SteamWishlistApp {
     public static class MauiProgram {
+
+        public static WishlistData FriendsData = new();
+
         public static MauiApp CreateMauiApp() {
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
@@ -19,8 +25,12 @@ namespace SteamWishlistApp {
 
             builder.Services.AddSingleton<BasePage>();
             builder.Services.AddSingleton<BaseViewModel>();
+
+            builder.Services.AddSingleton<TopBarContent>();
+
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<FriendPage>();
+            builder.Services.AddTransient<FriendViewModel>();
 
             return builder.Build();
         }

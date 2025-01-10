@@ -1,10 +1,13 @@
 using SteamWishlistApp.ViewModel;
+using SteamWishlistApp.ViewModels;
 
 namespace SteamWishlistApp.Views;
 
-public partial class FriendPage : BasePage
+public partial class FriendPage : ContentPage
 {
-	public FriendPage(BaseViewModel baseViewModel) : base(baseViewModel) {
+	public FriendPage(FriendViewModel viewModel) {
 		InitializeComponent();
+		BindingContext = viewModel;
+
 	}
 }
