@@ -7,8 +7,7 @@ using System.Diagnostics;
 
 namespace SteamWishlistApp.Controls;
 
-public partial class TopBarControl : ContentView
-{
+public partial class TopBarControl : ContentView {
 
     private static ObservableCollection<Friend> _friends = new ObservableCollection<Friend>();
     public ObservableCollection<Friend> Friends {
@@ -19,17 +18,19 @@ public partial class TopBarControl : ContentView
         }
     }
 
-    public TopBarControl()
-	{
-		InitializeComponent();
+    public TopBarControl() {
+        InitializeComponent();
         BindingContext = this;
-	}
+    }
 
     private async void Friend_Tapped(object sender, TappedEventArgs e) {
         Trace.WriteLine("Friend button has been pressed.");
-        await Shell.Current.GoToAsync("/" + nameof(FriendPage), new Dictionary<string, object> {
-            { "Friend", new Friend { Name = "Hecker", Games = new List<SteamApp> { new SteamApp { Title = "Hecker Game"} } } }
-        });
+
+        if (sender is VisualElement visualElement && visualElement.BindingContext is Friend friend) {
+            await Shell.Current.GoToAsync("/" + nameof(FriendPage), new Dictionary<string, object> {
+                { "Friend", friend }
+            });
+        }
     }
 
     private async void Home_Tapped(object sender, TappedEventArgs e) {
