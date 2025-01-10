@@ -25,6 +25,9 @@ namespace SteamStoreAPI {
             var data = JsonSerializer.Deserialize<Dictionary<string, AppData>>(response.Content!)!;
             if(data.ContainsKey(appId.ToString())) {
                 var appData = data[appId.ToString()];
+
+                if (appData.success == false) return null;
+
                 SteamApp app = appData.data!;
                 app.Id = appId;
                 return app!;
@@ -32,7 +35,7 @@ namespace SteamStoreAPI {
 
             
 
-            return null!;
+            return null;
         }
 
         private class AppData {

@@ -20,5 +20,13 @@ namespace WishlistAppUnitTests {
 
 
         }
+
+        [TestMethod]
+        public async Task TestFakeGame() {
+            DataClient client = new DataClient();
+            SteamApp app = await client.GetSteamApp("9999999999999");
+
+            Assert.IsNull(app);
+        }
     }
 }
