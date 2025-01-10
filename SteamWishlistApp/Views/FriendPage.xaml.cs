@@ -1,6 +1,5 @@
 using SteamStoreAPI.Models;
 using SteamWishlistApp.Models;
-using SteamWishlistApp.ViewModel;
 using SteamWishlistApp.ViewModels;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

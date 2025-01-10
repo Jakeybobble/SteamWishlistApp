@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using SteamWishlistApp.Controls;
-using SteamWishlistApp.ViewModel;
 using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 
@@ -19,9 +18,6 @@ namespace SteamWishlistApp {
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
-            builder.Services.AddSingleton<BasePage>();
-            builder.Services.AddSingleton<BaseViewModel>();
 
             builder.Services.AddSingleton<TopBarControl>();
 

@@ -1,5 +1,4 @@
-﻿using SteamWishlistApp.ViewModel;
-using SteamWishlistApp.ViewModels;
+﻿using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 
 namespace SteamWishlistApp {
