@@ -9,14 +9,16 @@ namespace WishlistAppUnitTests {
         public async Task TestSteamAppApi() {
             SteamApp comparisonApp = new SteamApp {
                 Title = "Balatro",
-                Id = "2379780",
+                AppId = 2379780,
+                InitialPrice = 1399,
             };
 
             DataClient client = new DataClient();
-            SteamApp app = await client.GetSteamApp(comparisonApp.Id);
+            SteamApp app = await client.GetSteamApp(comparisonApp.AppId);
 
             Assert.AreEqual(app.Title, comparisonApp.Title);
-            Assert.AreEqual(app.Id, comparisonApp.Id);
+            Assert.AreEqual(app.AppId, comparisonApp.AppId);
+            Assert.AreEqual(app.InitialPrice, comparisonApp.InitialPrice);
 
 
         }
@@ -24,7 +26,7 @@ namespace WishlistAppUnitTests {
         [TestMethod]
         public async Task TestFakeGame() {
             DataClient client = new DataClient();
-            SteamApp app = await client.GetSteamApp("9999999999999");
+            SteamApp app = await client.GetSteamApp(999999999);
 
             Assert.IsNull(app);
         }
