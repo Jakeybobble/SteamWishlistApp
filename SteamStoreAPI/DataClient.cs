@@ -11,20 +11,33 @@ namespace SteamStoreAPI {
     public class DataClient {
 
         RestClient restClient;
-        const string baseUrl = "";
+        const string baseUrl = "https://store.steampowered.com/api/appdetails/";
         public DataClient() {
             restClient = new RestClient(baseUrl);
         
         }
 
-        public async Task<SteamApp> GetSteamApp(int appId) {
+        public async Task<SteamApp> GetSteamApp(string appId) {
             RestRequest request = new RestRequest().AddParameter("appids", appId);
 
             RestResponse response = await restClient.ExecuteGetAsync(request);
 
-            SteamApp app = JsonSerializer.Deserialize<SteamApp>(response.Content!)!;
+            var data = JsonSerializer.Deserialize<Dictionary<string, AppData>>(response.Content!)!;
+            if(data.ContainsKey(appId.ToString())) {
+                var appData = data[appId.ToString()];
+                SteamApp app = appData.data!;
+                app.Id = appId;
+                return app!;
+            }
 
-            return app;
+            
+
+            return null!;
+        }
+
+        private class AppData {
+            public bool success { get; set; }
+            public SteamApp? data { get; set; }
         }
     }
 }

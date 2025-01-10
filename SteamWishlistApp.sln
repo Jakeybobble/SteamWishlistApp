@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamWishlistApp", "SteamWishlistApp\SteamWishlistApp.csproj", "{E2D53A63-8E62-41A0-86AF-9E2A00ABC0E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamStoreAPI", "SteamStoreAPI\SteamStoreAPI.csproj", "{3577769E-C044-4768-A7D6-DBE63E6A56BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamStoreAPI", "SteamStoreAPI\SteamStoreAPI.csproj", "{3577769E-C044-4768-A7D6-DBE63E6A56BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishlistAppUnitTests", "WishlistAppUnitTests\WishlistAppUnitTests.csproj", "{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,26 @@ Global
 		{3577769E-C044-4768-A7D6-DBE63E6A56BD}.Release|x64.Build.0 = Release|Any CPU
 		{3577769E-C044-4768-A7D6-DBE63E6A56BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{3577769E-C044-4768-A7D6-DBE63E6A56BD}.Release|x86.Build.0 = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|x64.Build.0 = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Debug|x86.Build.0 = Debug|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|ARM.Build.0 = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|ARM64.Build.0 = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|x64.ActiveCfg = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|x64.Build.0 = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C22FF60-EFA9-43DF-9B63-3A03AB989D98}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
