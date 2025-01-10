@@ -10,7 +10,7 @@
         <controls:TopBarControl/>
 
         <!-- Content! -->
-        <ScrollView Orientation="Vertical" Padding="30" VerticalOptions="FillAndExpand" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}">
+        <ScrollView Orientation="Vertical" Padding="30" VerticalOptions="FillAndExpand">
             <!-- FIXME: Scroll doesn't work. -->
             <VerticalStackLayout Spacing="20"  HorizontalOptions="Center" MaximumWidthRequest="960" MinimumWidthRequest="860">
                 <!-- Name, add game input, -->
