@@ -28,7 +28,7 @@
                 <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Games}" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <controls:GameControl/> <!-- TODO: Add data to this -->
+                            <controls:GameControl GameTitle="{Binding Title}"/> <!-- TODO: Add data to this -->
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
