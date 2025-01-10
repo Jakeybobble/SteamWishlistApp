@@ -1,4 +1,5 @@
 ﻿using SteamStoreAPI.Models;
+using SteamWishlistApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,14 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SteamWishlistApp.ViewModels {
+
+    [QueryProperty(nameof(Friend), "Friend")]
     public class FriendViewModel : INotifyPropertyChanged {
 
-        private ObservableCollection<SteamApp> _games = new ObservableCollection<SteamApp>();
-        public ObservableCollection<SteamApp> Games {
-            get => _games;
+        private Friend _friend;
+        public Friend Friend {
+            get => _friend;
             set {
-                _games = value;
-                OnPropertyChanged(nameof(Games));
+                if (_friend != value) {
+                    _friend = value;
+                    OnPropertyChanged();
+                }
             }
         }
 

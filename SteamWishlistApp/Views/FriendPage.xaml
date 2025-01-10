@@ -10,22 +10,22 @@
         <controls:TopBarControl/>
 
         <!-- Content! -->
-        <ScrollView Orientation="Vertical" Padding="30" VerticalOptions="FillAndExpand">
+        <ScrollView Orientation="Vertical" Padding="30" VerticalOptions="FillAndExpand" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}">
             <!-- FIXME: Scroll doesn't work. -->
             <VerticalStackLayout Spacing="20"  HorizontalOptions="Center" MaximumWidthRequest="960" MinimumWidthRequest="860">
                 <!-- Name, add game input, -->
                 <HorizontalStackLayout Spacing="10">
-                    <Label FontSize="32" TextColor="White">Tomki</Label>
+                    <Label FontSize="32" TextColor="White" Text="{Binding Friend.Name}"></Label>
                     <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
                     <Entry Placeholder="App URL..." WidthRequest="200" BackgroundColor="Black" TextColor="White"></Entry>
-                    <Button Text="Add game" BackgroundColor="LightSlateGray"></Button>
+                    <Button Text="Add game" BackgroundColor="LightSlateGray" Clicked="AddGame_Clicked"></Button>
                     <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
                     <!-- TODO: Make link actually work when commands are added -->
                     <!-- https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/label?view=net-maui-9.0#create-a-hyperlink -->
                     <Label VerticalOptions="Center" Opacity="0.7" TextDecorations="Underline" TextColor="White" >Remove friend</Label>
                 </HorizontalStackLayout>
                 <!-- Game entries -->
-                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Games}" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}">
+                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Friend.Games}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <controls:GameControl GameTitle="{Binding Title}"/> <!-- TODO: Add data to this -->

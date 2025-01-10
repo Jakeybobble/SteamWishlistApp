@@ -8,17 +8,17 @@ namespace SteamWishlistApp.Views;
 
 public partial class FriendPage : ContentPage
 {
+
+    //private Friend friend = new Friend { Name = "Test Friend" };
+
 	public FriendPage(FriendViewModel viewModel) {
 		InitializeComponent();
 
-        Friend friend = new Friend { Name = "Dang" };
-
-        friend.Games.Add(new SteamApp { Title = "Testing Game 1" });
-        friend.Games.Add(new SteamApp { Title = "Testing Game - The Sequel"});
-
-        viewModel.Games = new ObservableCollection<SteamApp>(friend.Games);
-
         BindingContext = viewModel;
 
+    }
+
+    private void AddGame_Clicked(object sender, EventArgs e) {
+        // TODO: Add game to both friend's list and BindingContext list, or re-create list from friend's list
     }
 }

@@ -1,3 +1,4 @@
+using SteamStoreAPI.Models;
 using SteamWishlistApp.Models;
 using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
@@ -26,7 +27,9 @@ public partial class TopBarControl : ContentView
 
     private async void Friend_Tapped(object sender, TappedEventArgs e) {
         Trace.WriteLine("Friend button has been pressed.");
-        await Shell.Current.GoToAsync("/" + nameof(FriendPage), false);
+        await Shell.Current.GoToAsync("/" + nameof(FriendPage), new Dictionary<string, object> {
+            { "Friend", new Friend { Name = "Hecker", Games = new List<SteamApp> { new SteamApp { Title = "Hecker Game"} } } }
+        });
     }
 
     private async void Home_Tapped(object sender, TappedEventArgs e) {
