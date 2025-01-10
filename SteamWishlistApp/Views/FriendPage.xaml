@@ -6,10 +6,10 @@
              xmlns:controls="clr-namespace:SteamWishlistApp.Controls">
     <VerticalStackLayout BackgroundColor="SlateGray">
         <!-- Bar! -->
-        <controls:TopBarContent/>
+        <controls:TopBarControl/>
 
         <!-- Content! -->
-        <ScrollView Orientation="Vertical" Padding="30">
+        <ScrollView Orientation="Vertical" Padding="30" VerticalOptions="FillAndExpand">
             <!-- FIXME: Scroll doesn't work. -->
             <VerticalStackLayout Spacing="20"  HorizontalOptions="Center" MaximumWidthRequest="960" MinimumWidthRequest="860">
                 <!-- Name, add game input, -->

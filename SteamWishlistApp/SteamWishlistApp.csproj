@@ -72,13 +72,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\TopBarControl.xaml.cs">
+	    <DependentUpon>TopBarControl.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\BasePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\FriendPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Controls\TopBarContent.xaml">
+	  <MauiXaml Update="Controls\TopBarControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

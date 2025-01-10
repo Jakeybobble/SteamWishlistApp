@@ -26,7 +26,7 @@ namespace SteamWishlistApp {
             builder.Services.AddSingleton<BasePage>();
             builder.Services.AddSingleton<BaseViewModel>();
 
-            builder.Services.AddSingleton<TopBarContent>();
+            builder.Services.AddSingleton<TopBarControl>();
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<FriendPage>();

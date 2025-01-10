@@ -6,7 +6,7 @@
 
     <VerticalStackLayout BackgroundColor="SlateGray">
         <!-- Bar! -->
-            <controls:TopBarContent/>
+            <controls:TopBarControl/>
 
             <!-- Content! -->
         <ScrollView Orientation="Vertical" >

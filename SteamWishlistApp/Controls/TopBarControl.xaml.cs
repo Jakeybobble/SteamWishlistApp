@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SteamWishlistApp.Controls;
 
-public partial class TopBarContent : ContentView
+public partial class TopBarControl : ContentView
 {
 
     private static ObservableCollection<Friend> _friends = new ObservableCollection<Friend>();
@@ -18,7 +18,7 @@ public partial class TopBarContent : ContentView
         }
     }
 
-    public TopBarContent()
+    public TopBarControl()
 	{
 		InitializeComponent();
         BindingContext = this;
