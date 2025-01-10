@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SteamWishlistApp.Views.FriendPage"
              xmlns:views="clr-namespace:SteamWishlistApp.Views"
-             xmlns:controls="clr-namespace:SteamWishlistApp.Controls">
+             xmlns:controls="clr-namespace:SteamWishlistApp.Controls"
+             xmlns:vm="clr-namespace:SteamWishlistApp.ViewModels">
     <VerticalStackLayout BackgroundColor="SlateGray">
         <!-- Bar! -->
         <controls:TopBarControl/>
@@ -24,10 +25,12 @@
                     <Label VerticalOptions="Center" Opacity="0.7" TextDecorations="Underline" TextColor="White" >Remove friend</Label>
                 </HorizontalStackLayout>
                 <!-- Game entries -->
-                <VerticalStackLayout Spacing="10">
-                    <!-- TODO: List of GameControls -->
-                    <controls:GameControl/>
-
+                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Games}" BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <controls:GameControl/> <!-- TODO: Add data to this -->
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
 
             </VerticalStackLayout>

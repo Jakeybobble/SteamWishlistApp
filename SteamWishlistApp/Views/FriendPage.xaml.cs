@@ -1,3 +1,4 @@
+using SteamStoreAPI.Models;
 using SteamWishlistApp.ViewModel;
 using SteamWishlistApp.ViewModels;
 
@@ -9,5 +10,8 @@ public partial class FriendPage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 
-	}
+		viewModel.Games.Add( new SteamApp { Title = "The Game" });
+        viewModel.Games.Add(new SteamApp { Title = "The Second Game" });
+
+    }
 }
