@@ -22,6 +22,8 @@ namespace SteamStoreAPI.Models {
         public string InitialPriceFormatted { get; set; }
         public string FinalPriceFormatted { get; set; }
 
+        public bool IsDiscounted => DiscountPercent > 0;
+
         
 
     }

@@ -3,9 +3,13 @@ using SteamWishlistApp.Controls;
 using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 using Mopups.Hosting;
+using SteamStoreAPI;
 
 namespace SteamWishlistApp {
     public static class MauiProgram {
+
+        public static DataClient DataClient = new DataClient();
+
         public static MauiApp CreateMauiApp() {
 
             var builder = MauiApp.CreateBuilder();
