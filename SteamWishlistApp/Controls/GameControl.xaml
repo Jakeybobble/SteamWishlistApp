@@ -2,8 +2,14 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SteamWishlistApp.Controls.GameControl"
+             xmlns:converters="clr-namespace:SteamWishlistApp.Converters"
              x:Name="this">
-    <Border StrokeThickness="2" HeightRequest="215" HorizontalOptions="Fill" Stroke="Yellow" BindingContext="{x:Reference this}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:SaleHighlightConverter x:Key="SaleHighlightConverter"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Border StrokeThickness="2" HeightRequest="215" HorizontalOptions="Fill" Stroke="{Binding Game.IsDiscounted, Converter={StaticResource SaleHighlightConverter}}" BindingContext="{x:Reference this}">
         <HorizontalStackLayout BackgroundColor="LightSlateGray" Padding="10" Spacing="10">
             <Image Source="{Binding Game.HeaderUrl}"/>
             <FlexLayout JustifyContent="SpaceBetween" Direction="Column">

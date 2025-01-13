@@ -1,5 +1,6 @@
 using SteamStoreAPI.Models;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace SteamWishlistApp.Controls;
 
@@ -25,4 +26,5 @@ public partial class GameControl : ContentView
             Trace.WriteLine(ex);
         }
     }
+
 }
