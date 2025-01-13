@@ -19,7 +19,7 @@ namespace SteamStoreAPI {
         }
 
         public async Task<SteamApp> GetSteamApp(int appId) {
-            RestRequest request = new RestRequest().AddParameter("appids", appId);
+            RestRequest request = new RestRequest().AddParameter("appids", appId).AddParameter("cc", "se");
 
             RestResponse response = await restClient.ExecuteGetAsync(request);
 
