@@ -10,7 +10,11 @@
                 <!-- Title, desc, etc... -->
                 <VerticalStackLayout>
                     <!-- TODO: Link to game -->
-                    <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding GameTitle}"/>
+                    <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding Game.Title}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClickTitleCommand}" CommandParameter="{Binding AppId}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <Label TextColor="White" Opacity="0.7">FromSoftware, Inc. | Bandai Namco Entertainment</Label>
                 </VerticalStackLayout>
 
