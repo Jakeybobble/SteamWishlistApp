@@ -3,6 +3,7 @@ using SteamWishlistApp.Models;
 using SteamWishlistApp.ViewModels;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace SteamWishlistApp.Views;
 
@@ -17,10 +18,16 @@ public partial class FriendPage : ContentPage
     }
 
     private async void AddGame_Clicked(object sender, EventArgs e) {
-        var app = await MauiProgram.DataClient.GetSteamApp(1245620); // Elden ring
-        var app2 = await MauiProgram.DataClient.GetSteamApp(516750); // My summer car
-        ((FriendViewModel)BindingContext).Friend.Games.Add(app);
-        ((FriendViewModel)BindingContext).Friend.Games.Add(app2);
-        Trace.WriteLine("Add Game button clicked.");
+        string input = UrlEntry.Text ?? "";
+        string pattern = @"(\d+)";
+        Match match = Regex.Match(input, pattern);
+        string firstMatch = match.ToString();
+        if (!String.IsNullOrEmpty(firstMatch) && int.TryParse(firstMatch, out var id)) {
+            var app = await MauiProgram.DataClient.GetSteamApp(id);
+            ((FriendViewModel)BindingContext).Friend.Games.Add(app);
+            Trace.WriteLine($"Added game: {app.Title}.");
+
+            UrlEntry.Text = string.Empty;
+        }
     }
 }

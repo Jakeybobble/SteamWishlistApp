@@ -17,7 +17,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label FontSize="32" TextColor="White" Text="{Binding Friend.Name}"></Label>
                     <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
-                    <Entry Placeholder="App URL..." WidthRequest="200" BackgroundColor="Black" TextColor="White"></Entry>
+                    <Entry Placeholder="App URL..." WidthRequest="200" BackgroundColor="Black" TextColor="White" x:Name="UrlEntry"></Entry>
                     <Button Text="Add game" BackgroundColor="LightSlateGray" Clicked="AddGame_Clicked"></Button>
                     <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
                     <!-- TODO: Make link actually work when commands are added -->
