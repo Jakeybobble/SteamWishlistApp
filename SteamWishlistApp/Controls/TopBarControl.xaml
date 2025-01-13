@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SteamWishlistApp.Controls.TopBarControl">
+    <Grid HeightRequest="96" BackgroundColor="DarkGray" ColumnDefinitions="Auto,*" Padding="10" VerticalOptions="Fill">
+        <!-- Home button and divider -->
+        <HorizontalStackLayout Spacing="10" Margin="0,0,10,0">
+            <!-- Button... -->
+            <StackLayout VerticalOptions="End" WidthRequest="76">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Home_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Image HeightRequest="50" WidthRequest="50" Source="house.png"/>
+                <!-- Label -->
+                <Label Text="Home" FontSize="14" HorizontalTextAlignment="Center" VerticalOptions="End" TextColor="White"/>
+
+            </StackLayout>
+            <Rectangle VerticalOptions="Fill" WidthRequest="10" BackgroundColor="Black" Opacity="0.2"></Rectangle>
+
+        </HorizontalStackLayout>
+
+        <!-- Friends -->
+        <ScrollView Orientation="Horizontal" Grid.Column="1" BackgroundColor="DarkGray">
+            <HorizontalStackLayout Spacing="10">
+                <HorizontalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Friends }">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="End" WidthRequest="76">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Friend_Tapped" CommandParameter="{Binding .}"/>
+                                </StackLayout.GestureRecognizers>
+
+                                <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" BackgroundColor="White" BorderColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" FontSize="14" HorizontalTextAlignment="Center" VerticalOptions="End" TextColor="White"/>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+                <StackLayout VerticalOptions="End" WidthRequest="76">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Plus_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image HeightRequest="50" WidthRequest="50" Source="plus.png"/>
+                    <Label Text="Add friend" FontSize="14" HorizontalTextAlignment="Center" VerticalOptions="End" TextColor="White"/>
+
+                </StackLayout>
+
+
+            </HorizontalStackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentView>

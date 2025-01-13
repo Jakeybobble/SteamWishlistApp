@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SteamWishlistApp.Controls.GameControl"
+             x:Name="this">
+    <Border StrokeThickness="2" HeightRequest="215" HorizontalOptions="Fill" Stroke="Yellow" BindingContext="{x:Reference this}">
+        <HorizontalStackLayout BackgroundColor="LightSlateGray" Padding="10" Spacing="10">
+            <Image Source="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1726158298"/>
+            <FlexLayout JustifyContent="SpaceBetween" Direction="Column">
+                <!-- Title, desc, etc... -->
+                <VerticalStackLayout>
+                    <!-- TODO: Link to game -->
+                    <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding GameTitle}"/>
+                    <Label TextColor="White" Opacity="0.7">FromSoftware, Inc. | Bandai Namco Entertainment</Label>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label FontSize="30" TextColor="White">On sale!</Label>
+                    <!-- Price tag -->
+                    <Border HorizontalOptions="Start">
+                        <HorizontalStackLayout HeightRequest="50" Background="SlateGray">
+                            <StackLayout BackgroundColor="#3e5536" WidthRequest="90">
+                                <Label FontAttributes="Bold" FontSize="33" TextColor="#beee11" HorizontalOptions="Center" VerticalOptions="Center">-50%</Label>
+                            </StackLayout>
+                            <VerticalStackLayout VerticalOptions="Center" WidthRequest="76">
+                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label FontSize="16" TextColor="White" Opacity="0.7" TextDecorations="Strikethrough">59,99€</Label>
+                                    <Label FontSize="16" TextColor="White">29,98€</Label>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </FlexLayout>
+        </HorizontalStackLayout>
+    </Border>
+</ContentView>
