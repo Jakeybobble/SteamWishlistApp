@@ -2,6 +2,7 @@
 using SteamWishlistApp.Controls;
 using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
+using Mopups.Hosting;
 
 namespace SteamWishlistApp {
     public static class MauiProgram {
@@ -10,6 +11,7 @@ namespace SteamWishlistApp {
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureMopups()
                 .ConfigureFonts(fonts => {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
