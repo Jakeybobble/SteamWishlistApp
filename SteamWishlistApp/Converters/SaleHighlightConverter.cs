@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SteamWishlistApp.Converters {
     public class SaleHighlightConverter : IValueConverter {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
-            return (bool)value ? Colors.LightGray : Colors.Yellow;
+            return (bool)value ? Colors.Yellow : Colors.LightGray;
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
