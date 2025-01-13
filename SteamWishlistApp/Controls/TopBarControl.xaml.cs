@@ -4,7 +4,8 @@ using SteamWishlistApp.ViewModels;
 using SteamWishlistApp.Views;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-
+using Mopups.Services;
+using System.Threading.Tasks;
 namespace SteamWishlistApp.Controls;
 
 public partial class TopBarControl : ContentView {
@@ -38,8 +39,18 @@ public partial class TopBarControl : ContentView {
         await Shell.Current.GoToAsync("///" + nameof(MainPage), false);
     }
 
-    private void Plus_Tapped(object sender, TappedEventArgs e) {
+    private async void Plus_Tapped(object sender, TappedEventArgs e) {
         Trace.WriteLine("Adding new friend.");
-        Friends.Add(new Friend { Name = "Tomki" });
+
+        var tcs = new TaskCompletionSource<string>();
+        await MopupService.Instance.PushAsync(new AddFriendPopUp(tcs));
+
+        string result = await tcs.Task;
+        if (!string.IsNullOrEmpty(result))
+        {
+            Trace.WriteLine($"Adding new friend: {result}");
+            Friends.Add(new Friend { Name = result });
+        }
+        //Friends.Add(new Friend { Name = "Tomki" });
     }
 }
