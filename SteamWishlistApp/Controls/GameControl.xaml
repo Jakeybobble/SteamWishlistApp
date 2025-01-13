@@ -9,10 +9,9 @@
             <FlexLayout JustifyContent="SpaceBetween" Direction="Column">
                 <!-- Title, desc, etc... -->
                 <VerticalStackLayout>
-                    <!-- TODO: Link to game -->
                     <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding Game.Title}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ClickTitleCommand}" CommandParameter="{Binding AppId}"/>
+                            <TapGestureRecognizer Tapped="Title_Tapped"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <Label TextColor="White" Opacity="0.7">FromSoftware, Inc. | Bandai Namco Entertainment</Label>

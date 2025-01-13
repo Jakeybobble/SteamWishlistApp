@@ -17,4 +17,12 @@ public partial class GameControl : ContentView
 		InitializeComponent();
 	}
 
+    private async void Title_Tapped(object sender, TappedEventArgs e) {
+        try {
+            Uri uri = new Uri($"https://store.steampowered.com/app/{Game.AppId}/");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        } catch (Exception ex) {
+            Trace.WriteLine(ex);
+        }
+    }
 }
