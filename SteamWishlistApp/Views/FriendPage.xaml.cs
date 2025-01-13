@@ -16,9 +16,9 @@ public partial class FriendPage : ContentPage
 
     }
 
-    private void AddGame_Clicked(object sender, EventArgs e) {
-        // TODO: Add game to both friend's list and BindingContext list, or re-create list from friend's list
-        ((FriendViewModel)BindingContext).Friend.Games.Add(new SteamApp { Title = "Woah it's a game"});
+    private async void AddGame_Clicked(object sender, EventArgs e) {
+        var app = await MauiProgram.DataClient.GetSteamApp(1245620); // Elden ring
+        ((FriendViewModel)BindingContext).Friend.Games.Add(app);
         Trace.WriteLine("Add Game button clicked.");
     }
 }
