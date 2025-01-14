@@ -24,7 +24,9 @@ public partial class FriendPage : ContentPage
         string firstMatch = match.ToString();
         if (!String.IsNullOrEmpty(firstMatch) && int.TryParse(firstMatch, out var id)) {
             var app = await MauiProgram.DataClient.GetSteamApp(id);
+
             ((FriendViewModel)BindingContext).Friend.Games.Add(app);
+
             Trace.WriteLine($"Added game: {app.Title}.");
 
             UrlEntry.Text = string.Empty;

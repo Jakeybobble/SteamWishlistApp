@@ -1,4 +1,5 @@
 using SteamStoreAPI.Models;
+using SteamWishlistApp.ViewModels;
 using System.Diagnostics;
 using System.Globalization;
 
@@ -27,4 +28,12 @@ public partial class GameControl : ContentView
         }
     }
 
+    private void Button_Clicked(object sender, EventArgs e) {
+
+        if (sender is Button button && button.CommandParameter is FriendViewModel vm) {
+            Trace.WriteLine(vm);
+            vm.Friend.Games.Remove(Game);
+        }
+
+    }
 }

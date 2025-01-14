@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SteamWishlistApp.Controls.GameControl"
              xmlns:converters="clr-namespace:SteamWishlistApp.Converters"
+             xmlns:vm="clr-namespace:SteamWishlistApp.ViewModels"
              x:Name="this">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -10,47 +11,53 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <Border StrokeThickness="2" HeightRequest="215" HorizontalOptions="Fill" Stroke="{Binding Game.IsDiscounted, Converter={StaticResource SaleHighlightConverter}}" BindingContext="{x:Reference this}">
-        <HorizontalStackLayout BackgroundColor="LightSlateGray" Padding="10" Spacing="10">
+        <Grid ColumnDefinitions="*,Auto">
+
+            <HorizontalStackLayout Grid.Column="0" BackgroundColor="LightSlateGray" Padding="10" Spacing="10">
             <Image Source="{Binding Game.HeaderUrl}"/>
-            <FlexLayout JustifyContent="SpaceBetween" Direction="Column">
-                <!-- Title, desc, etc... -->
-                <VerticalStackLayout>
-                    <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding Game.Title}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Title_Tapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <!--
+                <FlexLayout JustifyContent="SpaceBetween" Direction="Column">
+                    <!-- Title, desc, etc... -->
+                    <VerticalStackLayout>
+                        <Label TextColor="White" TextDecorations="Underline" FontSize="32" Text="{Binding Game.Title}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Title_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <!--
                     <Label TextColor="White" Opacity="0.7">FromSoftware, Inc. | Bandai Namco Entertainment</Label>
                     -->
-                </VerticalStackLayout>
+                    </VerticalStackLayout>
 
-                <VerticalStackLayout Spacing="5">
-                    <Label FontSize="30" TextColor="White" IsVisible="{Binding Game.IsDiscounted}">On sale!</Label>
-                    <!-- Price tag -->
-                    <Border HorizontalOptions="Start">
-                        <HorizontalStackLayout HeightRequest="50" Background="SlateGray">
-                            <StackLayout BackgroundColor="#3e5536" WidthRequest="90" IsVisible="{Binding Game.IsDiscounted}">
-                                <Label HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="-" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
-                                            <Span Text="{Binding Game.DiscountPercent}" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
-                                            <Span Text="%" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </StackLayout>
-                            <VerticalStackLayout VerticalOptions="Center" WidthRequest="76">
-                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Label FontSize="16" TextColor="White" Opacity="0.7" TextDecorations="Strikethrough" IsVisible="{Binding Game.IsDiscounted}" Text="{Binding Game.InitialPriceFormatted}"/>
-                                    <Label FontSize="16" TextColor="White" Text="{Binding Game.FinalPriceFormatted}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label FontSize="30" TextColor="White" IsVisible="{Binding Game.IsDiscounted}">On sale!</Label>
+
+                        <!-- Price tag -->
+                        <Border HorizontalOptions="Start">
+                            <HorizontalStackLayout HeightRequest="50" Background="SlateGray">
+                                <StackLayout BackgroundColor="#3e5536" WidthRequest="90" IsVisible="{Binding Game.IsDiscounted}">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="-" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
+                                                <Span Text="{Binding Game.DiscountPercent}" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
+                                                <Span Text="%" FontAttributes="Bold" FontSize="33" TextColor="#beee11"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <VerticalStackLayout VerticalOptions="Center" WidthRequest="76">
+                                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label FontSize="16" TextColor="White" Opacity="0.7" TextDecorations="Strikethrough" IsVisible="{Binding Game.IsDiscounted}" Text="{Binding Game.InitialPriceFormatted}"/>
+                                        <Label FontSize="16" TextColor="White" Text="{Binding Game.FinalPriceFormatted}"/>
+                                    </VerticalStackLayout>
                                 </VerticalStackLayout>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </Border>
-                </VerticalStackLayout>
-            </FlexLayout>
-        </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                </FlexLayout>
+            </HorizontalStackLayout>
+            <Button Grid.Column="1" Clicked="Button_Clicked" CommandParameter="{Binding Source={RelativeSource AncestorType={x:Type vm:FriendViewModel}}}" Text="X" Opacity="0.7" TextColor="White" BackgroundColor="#66738b"/>
+        </Grid>
+
     </Border>
 </ContentView>
