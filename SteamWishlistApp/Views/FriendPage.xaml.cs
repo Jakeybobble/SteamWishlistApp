@@ -1,4 +1,5 @@
 using SteamStoreAPI.Models;
+using SteamWishlistApp.Controls;
 using SteamWishlistApp.Models;
 using SteamWishlistApp.ViewModels;
 using System.Collections.ObjectModel;
@@ -25,11 +26,18 @@ public partial class FriendPage : ContentPage
         if (!String.IsNullOrEmpty(firstMatch) && int.TryParse(firstMatch, out var id)) {
             var app = await MauiProgram.DataClient.GetSteamApp(id);
 
+            if (app == null) return;
+
             ((FriendViewModel)BindingContext).Friend.Games.Add(app);
 
             Trace.WriteLine($"Added game: {app.Title}.");
 
             UrlEntry.Text = string.Empty;
         }
+    }
+
+    private async void RemoveFriend_Tapped(object sender, TappedEventArgs e) {
+        await Shell.Current.GoToAsync("///" + nameof(MainPage), false);
+        TopBar.Friends.Remove(((FriendViewModel)BindingContext).Friend);
     }
 }
